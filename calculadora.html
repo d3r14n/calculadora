@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculadora</title>
+		<link rel="stylesheet" type="text/css" href="estilos_calculadora.css">
+	</head>
+	<body>
+		<div class="calculadora">
+			<input disabled type="text" placeholder="0" id="pantalla">
+			<div class="linea">
+				<button onclick="borrar()" class="operaciones">C</button>
+				<button onclick="concat(this.innerHTML)" class="operaciones">%</button>
+				<button class="operaciones"></button>
+				<button onclick="concat(this.innerHTML)" class="operaciones">/</button>
+			</div>
+			<div class="linea">
+				<button onclick="concat(this.innerHTML)">7</button>
+				<button onclick="concat(this.innerHTML)">8</button>
+				<button onclick="concat(this.innerHTML)">9</button>
+				<button onclick="concat(this.innerHTML)" class="operaciones">*</button>
+			</div>
+			<div class="linea">
+				<button onclick="concat(this.innerHTML)">4</button>
+				<button onclick="concat(this.innerHTML)">5</button>
+				<button onclick="concat(this.innerHTML)">6</button>
+				<button onclick="concat(this.innerHTML)" class="operaciones">-</button>
+			</div>
+			<div class="linea">
+				<button onclick="concat(this.innerHTML)">1</button>
+				<button onclick="concat(this.innerHTML)">2</button>
+				<button onclick="concat(this.innerHTML)">3</button>
+				<button onclick="concat(this.innerHTML)" class="operaciones">+</button>
+			</div>
+			<div class="linea">
+				<button></button>
+				<button onclick="concat(this.innerHTML)">0</button>
+				<button onclick="concat(this.innerHTML)">.</button>
+				<button onclick="resultado()" class="resultado">=</button>
+			</div>
+		</div>
+		<select>
+			<option style="display: none">Escoje tu tema...</option>
+			<option>Acuamarino</option><!-- Verde y Azul -->
+			<option>Citrico</option><!-- Naranja y Amarillo -->
+			<option>Luz de Noche</option><!-- Morado y Verde -->
+			<option>Sangriento</option><!-- Rojo y Oscuro -->
+		</select>
+		<script type="text/javascript">
+			function concat(txt)
+			{
+				document.getElementById('pantalla').value+=txt;
+			}
+			function borrar()
+			{
+				document.getElementById('pantalla').value = "";
+			}
+			function resultado()
+			{
+				operacion = document.getElementById('pantalla').value;
+				total = eval(operacion);
+				document.getElementById('pantalla').value = total;
+			}
+		</script>
+	</body>
+</html>
